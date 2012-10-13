@@ -98,6 +98,7 @@ textarea {
   left: 2%;
   margin-top: 2%;
   position: relative;
+  background: #cccccc;
 }
 
 .knob {
@@ -107,6 +108,13 @@ textarea {
   left: 50%;
   margin-top: -10%;
   margin-left: -10%;
+background: rgb(59,103,158); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, rgba(59,103,158,1) 0%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(59,103,158,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover, rgba(59,103,158,1) 0%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover, rgba(59,103,158,1) 0%,rgba(125,185,232,1) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover, rgba(59,103,158,1) 0%,rgba(125,185,232,1) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center, rgba(59,103,158,1) 0%,rgba(125,185,232,1) 100%); /* W3C */
 }
 
 /* ==========================================================================
