@@ -34,6 +34,21 @@ function dragEnd(evt) {
   drag(evt);
 }
 
+function adjustAspectRatios() {
+  makeCircular($('#background'));
+  makeCircular($('#knob'));
+}
+
+function makeCircular($el) {
+  var width = $el.width();
+  // Android 2 browser doesn't seem to understand percentage border-radius, so we need to set it
+  // via an inline style once we know the width
+  $el.css({
+    height: width,
+    borderRadius: width/2
+  });
+}
+
 function wrapForTouch(f) {
   return function(evt) {
     if (evt.originalEvent && evt.originalEvent.touches && evt.originalEvent.touches.length === 1) {
@@ -50,18 +65,17 @@ $(function() {
       width;
 
 	// make background and knob circular
-  width = $background.width();
-  $background.height(width).css('border-radius', width/2);
-  width = $knob.width();
-  $knob.height($knob.width()).css('border-radius', width/2);
+  makeCircular($background);
+  makeCircular($knob);
 
-  alert("hello again");
   dragInfo.element = $knob[0];
 
-  $background.bind('mousedown', function(evt) { return false; });
   $knob.bind('touchstart mousedown', wrapForTouch(dragStart));
   $(document).bind('touchmove mousemove', wrapForTouch(drag));
   $knob.bind('touchend mouseup', wrapForTouch(dragEnd));
+
+  $background.bind('mousedown', function(evt) { return false; });
+  $(window).bind('resize', adjustAspectRatios);
 });
 
 
