@@ -61,3 +61,14 @@ def interpret_joystick_command(x, y):
   # center, the faster motor is at max speed regardless of the angle
   scale = 1000 * speed / max(abs(left), abs(right))
   return (int(scale * left + 0.5), int(scale * right + 0.5))
+
+
+motor = Motor()
+
+#@public.route('/joystick', methods=['POST'])
+def joystick():
+  x = float(request.form['x'])
+  y = float(request.form['y'])
+  motor.send_command(*interpret_joystick_command(x, y))
+  return "ok"
+
