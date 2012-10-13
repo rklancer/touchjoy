@@ -1,7 +1,27 @@
 // Just do the dead simplest thing right now -- we have one draggable element, and no encapsulation
 var dragInfo = {},
     radialLimit,
-    radialLimitSquared;
+    radialLimitSquared, 
+    // position
+    x, 
+    y;
+
+function updatePosition(_x, _y) {
+  x = _x / radialLimit;
+  y = - _y / radialLimit;
+  console.log(x,y); 
+}
+
+function centerKnob() {
+  var $el = $(dragInfo.element),
+      width = $('#background').width();
+
+  $el.animate({
+    left: width/2,
+    top: width/2
+  }, 200);
+  updatePosition(0, 0);
+}
 
 function dragStart(evt) {
   dragInfo.dragging = true;
@@ -39,6 +59,8 @@ function drag(evt) {
     newcy *= scale;
   }
 
+  updatePosition(newcx, newcy);
+
   offset.left += (newcx - cx);
   offset.top += (newcy - cy);
 
@@ -47,7 +69,7 @@ function drag(evt) {
 
 function dragEnd(evt) {
   dragInfo.dragging = false;
-  drag(evt);
+  centerKnob();
 }
 
 function adjustDimensions() {
