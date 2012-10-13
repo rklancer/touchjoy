@@ -61,8 +61,7 @@ function wrapForTouch(f) {
 
 $(function() {
 	var $background = $('#background'),
-	    $knob = $('#knob'), 
-      width;
+	    $knob = $('#knob');
 
 	// make background and knob circular
   makeCircular($background);
