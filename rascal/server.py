@@ -72,7 +72,7 @@ def joystick():
   motor.send_command(*interpret_joystick_command(x, y))
   return "ok"
 
-#@rbtime(1)
-def repeat_last_motor_command_or_time_out():
+#@rbtimer(1)
+def repeat_last_motor_command_or_time_out(num):
   motor.repeat_last_command_or_time_out()
 
