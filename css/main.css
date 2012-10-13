@@ -94,14 +94,19 @@ textarea {
    ========================================================================== */
 
 .background {
-  width: 100%;
+  width: 96%;
+  left: 2%;
+  margin-top: 2%;
+  position: relative;
 }
 
 .knob {
-  position: fixed;
+  position: absolute;
   width: 20%;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  margin-top: -10%;
+  margin-left: -10%;
 }
 
 /* ==========================================================================
