@@ -4,6 +4,9 @@ var x = 0,
     intervalID,
     INTERVAL_LENGTH = 100; // ms
 
+// define console as a noop if not defined
+if (typeof console === 'undefined') console = { log: function() {} };
+
 function postJoystickPosition() {
   $.post('/joystick', { x: x, y: y });
 }
