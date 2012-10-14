@@ -37,7 +37,7 @@ class Motor:
     self.last_command_time = time.time()
     self.timed_out = False
 
-    command_string = "!M %d %d\r" % (left, right)
+    command_string = "!M %d %d\r" % (-right, left)
     self.send_command_string(command_string)
 
 
