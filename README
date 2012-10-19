@@ -19,3 +19,5 @@ See video of Touchjoy being used to drive a robot base (not at the Faire)
 The joystick app itself is in `index.html` and the associated files in `css/` and `js/`.
 
 An example formatted for use on the Rascal board lives in `rascal/`.
+
+Written by Richard Klancer <rpk@pobox.com>. MIT Licensed.
