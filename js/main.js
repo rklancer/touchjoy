@@ -17,13 +17,13 @@ function startSending() {
 
 function stopSending() {
   // one last time
-  postJoystickPosition(); 
+  postJoystickPosition();
   clearInterval(intervalID);
 }
 
 // draws "joystick", updates x and y
 function joystickGo() {
-  
+
   // Just do the dead simplest thing right now -- we have one draggable element, and no encapsulation
 
   var dragInfo = {},
@@ -35,7 +35,7 @@ function joystickGo() {
   function updatePosition(_x, _y) {
     x = _x / radialLimit;
     y = - _y / radialLimit;
-    console.log(x,y); 
+    console.log(x,y);
   }
 
   function centerKnob() {
