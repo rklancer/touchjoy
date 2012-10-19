@@ -1,3 +1,10 @@
+# The contents of this file were copied into server.py on a demo Rascal board, with the lines
+# preceded by the comment "# UNCOMMENT on a working Rascal" uncommented. (These lines were commented
+# for convenient development on a desktop machine not running the Rascal environment -- this is
+# demo code after all!)
+
+# The Rascal talks to a Roboteq MDC2200 motor controller over serial port 1.
+
 class Motor:
   SERIAL_SPEED = 115200
   TIMEOUT_INTERVAL = 3
@@ -10,9 +17,11 @@ class Motor:
 
 
   def send_command_string(self, command_string):
+    # UNCOMMENT on Rascal:
     # import pytronics
     
     self.last_command_string = command_string
+    # UNCOMMENT on a working Rascal:
     #pytronics.serialWrite(command_string, self.__class__.SERIAL_SPEED)
     print command_string
 
@@ -65,6 +74,7 @@ def interpret_joystick_command(x, y):
 
 motor = Motor()
 
+# UNCOMMENT on a working Rascal:
 #@public.route('/joystick', methods=['POST'])
 def joystick():
   x = float(request.form['x'])
@@ -72,6 +82,7 @@ def joystick():
   motor.send_command(*interpret_joystick_command(x, y))
   return "ok"
 
+# UNCOMMENT on a working Rascal:
 #@rbtimer(1)
 def repeat_last_motor_command_or_time_out(num):
   motor.repeat_last_command_or_time_out()
